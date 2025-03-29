@@ -1,0 +1,4 @@
+./book/book.sln
+./book/Debug/*
+./book/x64/*.log
+./book/book/.vs/
