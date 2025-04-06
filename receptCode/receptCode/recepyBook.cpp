@@ -6,11 +6,8 @@ RecepyBook::RecepyBook(string n, int pages, string text)
     cout << text << endl;
 }
 
-
 RecepyBook::RecepyBook(RecepyBook&& other) noexcept
-    : name(std::move(other.name)),
-    numbPages(other.numbPages),
-    content(std::move(other.content)) {
+    : name(std::move(other.name)), numbPages(other.numbPages), content(std::move(other.content)) {
     cout << "\n --- Moved book: " << name << "--- \n" << endl;
     other.numbPages = 0;
 }
@@ -18,8 +15,7 @@ RecepyBook::RecepyBook(RecepyBook&& other) noexcept
 void RecepyBook::showSize() const {
     cout << numbPages << " pages" << endl;
 }
+
 RecepyBook::~RecepyBook() {
     cout << "\n --- Closing " << name << "--- \n" << endl;
 }
-
-

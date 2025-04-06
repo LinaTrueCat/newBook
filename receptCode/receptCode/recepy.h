@@ -14,14 +14,13 @@ private:
 public:
     static int getAmountOfRecepy();
     Recepy(string n, int p = 0, bool m = true);
-    Recepy(const Recepy& other); // Copy-конструктор (копіює без м'яса)
-    ~Recepy();
+    Recepy(const Recepy& other);
+    virtual ~Recepy();
 
     void recepyStatus() const;
     void meatStatus() const;
     string getName() const { return name; }
     int getPage() const { return page; }
-
 };
 
 #endif // RECEPY_H
