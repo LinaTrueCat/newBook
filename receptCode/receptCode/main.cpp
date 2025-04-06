@@ -2,6 +2,7 @@
 #include "recepy.h"
 #include "nps.h"
 #include "recepyBook.h"
+#include "mainDish.h"
 
 using namespace std;
 
@@ -10,7 +11,7 @@ int main() {
     RecepyBook book1("Grandma's Recipes", 200, "This book contains ancient cooking secrets...");
 
     cout << "\n--- Moving Book ---\n";
-    RecepyBook book2 = move(book1); // Викликає move-конструктор
+    RecepyBook book2 = move(book1);
 
     Recepy grecha("Grecha", 20);
     Recepy potato("Potato", 30);
@@ -36,6 +37,12 @@ int main() {
     vegSurnuku.recepyStatus();
     vegSurnuku.meatStatus();
 
+    cout << "\n--- Main Dishes ---\n";
+    MainDish plov("Plov", 50, true, 850);
+    plov.recepyStatus();
+    plov.meatStatus();
+    plov.showCalories();
+
     cout << endl;
 
     Nps bob("Bob", 1, false);
@@ -47,6 +54,5 @@ int main() {
     maruna.chooseRecepy(surnuku);
 
     cout << endl;
-
     return 0;
 }
