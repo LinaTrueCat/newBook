@@ -14,6 +14,15 @@ Recepy::Recepy(const Recepy& other) : name(other.name), page(other.page), meat(f
     cout << "\033[32mCopying Recepy: \033[0m" << name << " on page " << page << " (meat removed)" << endl;
 }
 
+Recepy& Recepy::operator=(const Recepy& other) {
+    if (this != &other) {
+        name = other.name;
+        page = other.page;
+        meat = false;
+    }
+    return *this;
+}
+
 void Recepy::recepyStatus() const {
     cout << name << " on page " << page << endl;
 }

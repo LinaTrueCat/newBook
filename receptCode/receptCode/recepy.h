@@ -15,6 +15,7 @@ public:
     static int getAmountOfRecepy();
     Recepy(string n, int p = 0, bool m = true);
     Recepy(const Recepy& other);
+    Recepy& operator=(const Recepy& other);
     virtual ~Recepy();
 
     void recepyStatus() const;
