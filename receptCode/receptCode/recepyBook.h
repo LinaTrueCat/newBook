@@ -16,6 +16,8 @@ public:
     RecepyBook(string n, int numPages, string text);
     RecepyBook(const RecepyBook& other);
     RecepyBook(RecepyBook&& other) noexcept;
+    RecepyBook& operator=(const RecepyBook& other);
+    RecepyBook& operator=(RecepyBook&& other) noexcept;
     ~RecepyBook();
     void showSize() const;
 };
