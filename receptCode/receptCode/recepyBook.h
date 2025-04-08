@@ -3,10 +3,11 @@
 
 #include <iostream>
 #include <string>
+#include "cooking.h"
 
 using namespace std;
 
-class RecepyBook {
+class RecepyBook : public cooking {
 private:
     string name;
     int numbPages = 20;
@@ -20,6 +21,8 @@ public:
     RecepyBook& operator=(RecepyBook&& other) noexcept;
     ~RecepyBook();
     void showSize() const;
+
+    void cook() const override;
 };
 
-#endif // RECEPYBOOK_H
+#endif 

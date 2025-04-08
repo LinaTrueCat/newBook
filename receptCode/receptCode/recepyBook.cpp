@@ -17,7 +17,7 @@ RecepyBook::RecepyBook(RecepyBook&& other) noexcept
     other.numbPages = 0;
 }
 
-RecepyBook& RecepyBook::operator=(const RecepyBook& other) {     //присвоєння
+RecepyBook& RecepyBook::operator=(const RecepyBook& other) {
     if (this != &other) {
         name = other.name;
         numbPages = other.numbPages;
@@ -26,7 +26,7 @@ RecepyBook& RecepyBook::operator=(const RecepyBook& other) {     //присвоєння
     return *this;
 }
 
-RecepyBook& RecepyBook::operator=(RecepyBook&& other) noexcept {      //move
+RecepyBook& RecepyBook::operator=(RecepyBook&& other) noexcept {
     if (this != &other) {
         name = move(other.name);
         numbPages = other.numbPages;
@@ -42,4 +42,8 @@ void RecepyBook::showSize() const {
 
 RecepyBook::~RecepyBook() {
     cout << "\n --- Closing " << name << "--- \n" << endl;
+}
+
+void RecepyBook::cook() const {
+    cout << "Browsing and cooking from book: " << name << endl;
 }
