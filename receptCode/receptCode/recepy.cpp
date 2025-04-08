@@ -10,7 +10,7 @@ Recepy::Recepy(string n, int p, bool m) : name(n), page(p), meat(m) {
     amountOfRecepy++;
 }
 
-Recepy::Recepy(const Recepy& other) : name(other.name), page(other.page), meat(false) {
+Recepy::Recepy(const Recepy& other) : name(other.name), page(other.page), meat(false) { //copy
     cout << "\033[32mCopying Recepy: \033[0m" << name << " on page " << page << " (meat removed)" << endl;
 }
 
