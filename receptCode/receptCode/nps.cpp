@@ -30,7 +30,7 @@ void Nps::showVegStatus() const {
     else cout << "is not vegetarian" << endl;
 }
 
-void Nps::chooseRecepy(const Recepy& recepy) const {  //composition
+void Nps::chooseRecepy(const Recepy& recepy) const {
     cout << name << " decides to cook: " << endl;
     cout << "Recipe: " << recepy.getName() << ", Page: " << recepy.getPage() << endl;
     recepy.meatStatus();
