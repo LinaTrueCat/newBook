@@ -17,7 +17,7 @@ RecepyBook::RecepyBook(RecepyBook&& other) noexcept
     other.numbPages = 0;
 }
 
-RecepyBook& RecepyBook::operator=(const RecepyBook& other) {
+RecepyBook& RecepyBook::operator=(const RecepyBook& other) {     //присвоєння
     if (this != &other) {
         name = other.name;
         numbPages = other.numbPages;
@@ -26,7 +26,7 @@ RecepyBook& RecepyBook::operator=(const RecepyBook& other) {
     return *this;
 }
 
-RecepyBook& RecepyBook::operator=(RecepyBook&& other) noexcept {
+RecepyBook& RecepyBook::operator=(RecepyBook&& other) noexcept {      //move
     if (this != &other) {
         name = move(other.name);
         numbPages = other.numbPages;
