@@ -38,7 +38,7 @@ int main() {
     vegSurnuku.meatStatus();
 
     cout << "\n--- Main Dishes ---\n";
-    MainDish plov("Plov", 50, true, 850);
+    MainDish plov("Plov", 50, true, 850);     //_______
     plov.recepyStatus();
     plov.meatStatus();
     plov.showCalories();
