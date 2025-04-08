@@ -24,4 +24,4 @@ public:
     void chooseRecepy(const Recepy& recepy) const;
 };
 
-#endif // NPS_H
+#endif 

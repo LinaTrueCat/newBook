@@ -1,58 +1,50 @@
 #include <iostream>
+#include <vector>
 #include "recepy.h"
+#include "mainDish.h"
 #include "nps.h"
 #include "recepyBook.h"
-#include "mainDish.h"
+#include "cooking.h"
 
 using namespace std;
 
 int main() {
-    cout << "\n--- Creating Books ---\n";
     RecepyBook book1("Grandma's Recipes", 200, "This book contains ancient cooking secrets...");
-
-    cout << "\n--- Moving Book ---\n";
     RecepyBook book2 = move(book1);
 
-    Recepy grecha("Grecha", 20);
-    Recepy potato("Potato", 30);
-    Recepy surnuku("Surnuku", 40, false);
+   
+    Recepy* staticGrecha = new MainDish("StaticGrecha", 10, false, 400);  //
+    cout << "\n--- Static Binding Example ---\n";
+    staticGrecha->Recepy::recepyStatus(); // Static call викличе MainDish
+    staticGrecha->recepyStatus();         // Virtual call викличе MainDish::recepyStatus
+    delete staticGrecha;
 
-    cout << "Amount of Recepy is: " << Recepy::getAmountOfRecepy() << endl;
+    vector<Recepy*> recipes;
+    recipes.push_back(new MainDish("Plov", 50, true, 850));
+    recipes.push_back(new MainDish("Soup", 60, false, 300));
 
-    grecha.recepyStatus();
-    grecha.meatStatus();
-    Recepy vegGrecha = grecha;
-    vegGrecha.recepyStatus();
-    vegGrecha.meatStatus();
+    cout << "\n--- Dynamic Polymorphism (Pointer) ---\n";
+    for (Recepy* r : recipes) {
+        r->recepyStatus();
+        r->showType();
+        delete r;
+    }
 
-    potato.recepyStatus();
-    potato.meatStatus();
-    Recepy vegPotato = potato;
-    vegPotato.recepyStatus();
-    vegPotato.meatStatus();
+    MainDish dumplings("Dumplings", 70, true, 600);   //
+    Recepy& ref = dumplings;
+    cout << "\n--- Dynamic Polymorphism (Reference) ---\n";
+    ref.recepyStatus();
+    ref.showType();
 
-    surnuku.recepyStatus();
-    surnuku.meatStatus();
-    Recepy vegSurnuku = surnuku;
-    vegSurnuku.recepyStatus();
-    vegSurnuku.meatStatus();
+    cout << "\n--- Interface Usage ---\n";
+    cooking* c1 = new MainDish("Borscht", 30, true, 500);
+    cooking* c2 = new RecepyBook("Modern Meals", 150, "Healthy & tasty!");
 
-    cout << "\n--- Main Dishes ---\n";
-    MainDish plov("Plov", 50, true, 850);     //_______
-    plov.recepyStatus();
-    plov.meatStatus();
-    plov.showCalories();
+    c1->cook();
+    c2->cook();
 
-    cout << endl;
+    delete c1;
+    delete c2;
 
-    Nps bob("Bob", 1, false);
-    Nps gigi("Gigi", 2, true);
-    Nps maruna("Maruna", 3, false);
-
-    bob.chooseRecepy(grecha);
-    gigi.chooseRecepy(potato);
-    maruna.chooseRecepy(surnuku);
-
-    cout << endl;
     return 0;
 }
