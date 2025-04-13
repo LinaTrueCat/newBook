@@ -25,4 +25,4 @@ public:
     void cook() const override;
 };
 
-#endif 
+#endif
