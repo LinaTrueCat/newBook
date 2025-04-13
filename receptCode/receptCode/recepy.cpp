@@ -34,5 +34,5 @@ void Recepy::meatStatus() const {
 }
 
 Recepy::~Recepy() {
-    cout << "Page with " << name << " is closed" << endl;    //
+    cout << "Page with " << name << " is closed" << endl;
 }
