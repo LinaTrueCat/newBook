@@ -4,7 +4,7 @@
 #include "recepy.h"
 #include "cooking.h"
 
-class MainDish final : public Recepy, public cooking {     
+class MainDish final : public Recepy, public cooking {
 private:
     int calories;
 
@@ -19,4 +19,4 @@ public:
     void cook() const override;
 };
 
-#endif 
+#endif
